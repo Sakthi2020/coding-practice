@@ -1,0 +1,32 @@
+Replace every element with the greatest element on right side
+Given an array of integers, replace every element with the next greatest element (greatest element on the right side) in the array.
+Since there is no element next to the last element, replace it with -1. For example, if the array is {16, 17, 4, 3, 5, 2}, then it should be modified to {17, 5, 5, 5, 2, -1}.
+
+
+#include <stdio.h>
+
+int main(){
+    int n,max_right=0,i=0;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    max_right=a[n-1];
+    a[n-1]=-1;
+    for(i=n-2;i>=0;i--){
+        int temp=a[i];
+        if(temp>max_right){
+            a[i]=max_right;
+            max_right=temp;
+        }
+        else{
+            a[i]=max_right;
+        }
+    }
+    for(i=0;i<n;i++){
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
