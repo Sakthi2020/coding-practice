@@ -1,0 +1,31 @@
+6. Remove the duplicates in the String.
+Testcase 1:
+Input: Java1234
+Output: Javb1234 (Remove the second ‘a’ as it is duplicated)
+Testcase 2:
+Input: Python1223:
+Output: Python1234 (Replace the second 2 with 3, and replace 3 with 4 as 3 is replaced for the duplicated 2)
+Testcase 3:
+Input: aBuzZ9900
+Output: aBuzC9012
+
+
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+
+int main(){
+    char str[100];
+    int i=0,j=0,n;
+    gets(str);
+    n=strlen(str);
+    for(i=0;i<n;i++){
+        for(j=0;j<n;j++){
+            if(str[i]==str[j] && i!=j){
+                str[j]=str[j]+1;
+            }
+        }
+    }
+    printf("%s",str);
+    return 0;
+}
