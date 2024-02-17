@@ -1,0 +1,34 @@
+Print the word with odd letters – PROGRAM
+Sample Output-
+P      P
+ R    R 
+  O  O  
+   G   
+  R  R  
+ A    A 
+M      M
+
+
+
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char str[100];
+    int n;
+    scanf("%s",str);
+    //printf("%s",str);
+    n=strlen(str);
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(j==i || j==n-i-1){
+                printf("%c",str[j]);
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+    return 0;
+}
