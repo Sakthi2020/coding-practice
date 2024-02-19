@@ -1,0 +1,58 @@
+Given an array of integers, compute the maximum value for each integer in the index, by either summing all the digits or multiplying all the digits. (Choose which operation gives the maximum value)
+•	Input:
+•	5
+•	120 24 71 10 59
+•	Output:
+•	3 8 8 1 45
+Explanation: For index 0, the integer is 120. Summing the digits will give 3, and whereas Multiplying the digits gives 0. Thus, maximum of this two is 3.
+
+
+#include<stdio.h>
+
+int SumOfDigits(int n){
+    int sum=0;
+    while(n!=0){
+        sum+=(n%10);
+        n/=10;
+    }
+    return sum;
+}
+
+int ProductOfDigits(int n){
+    int product=1;
+    while(n!=0){
+        product*=(n%10);
+        n/=10;
+    }
+    return product;
+}
+
+void computeMax(int a[],int n,int maxValues[]){
+    for(int i=0;i<n;i++){
+        int sum=SumOfDigits(a[i]);
+        int product=ProductOfDigits(a[i]);
+        if(sum>product){
+            maxValues[i]=sum;
+        }
+        else{
+            maxValues[i]=product;
+        }
+    }
+}
+
+int main(){
+    int n,i=0;
+    scanf("%d",&n);
+    int a[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    int maxValues[n];
+    computeMax(a,n,maxValues);
+    for(i=0;i<n;i++){
+        printf("%d ",maxValues[i]);
+    }
+    return 0;
+    
+    
+}
