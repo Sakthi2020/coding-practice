@@ -1,0 +1,33 @@
+Given a string, change the order of words in the string (last string should come first).
+Should use RECURSION
+  
+Sample:   one two three 
+Output :  three two one 
+
+
+
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char str[100],temp[100][100];
+    int n;
+    gets(str);
+    n=strlen(str);
+    int c=0,j=0,i=0;
+    for(i=0;i<=n;i++){
+        if(str[i]==' ' || str[i]=='\0'){
+            temp[c][j]='\0';
+            j=0;
+            c++;
+        }
+        else{
+            temp[c][j]=str[i];
+            j++;
+        }
+    }
+    for(i=c-1;i>=0;i--){
+        printf("%s ",temp[i]);
+    }
+    return 0;
+}
