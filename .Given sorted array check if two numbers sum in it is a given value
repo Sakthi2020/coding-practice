@@ -1,0 +1,42 @@
+Given sorted array check if two numbers sum in it is a given value
+Input
+Array = {1 3 4 8 10 } N = 7
+output
+true
+
+
+#include<stdio.h>
+
+#define max 100
+
+int main(){
+    int size,input,a[max],target,c=0,i=0;
+    scanf("%d",&size);
+    for(i=0;i<size;i++){
+        scanf("%d",&a[i]);
+    }
+    
+    scanf("\n%d",&target);
+    int left=0,right;
+    right=size-1;
+    while(left<right){
+        int sum=a[left]+a[right];
+        if(sum==target){
+            c=1;
+            break;
+        }
+        else if(sum<target){
+            left++;
+        }
+        else{
+            right--;
+        }
+    }
+    if(c==1){
+        printf("True");
+    }
+    else{
+        printf("False");
+    }
+    return 0;
+}
