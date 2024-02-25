@@ -1,0 +1,46 @@
+
+ TWISTED PRIME NUMBER
+A number is said to be twisted prime if it is a prime number and reverse of the number is also a prime number.
+Input : 97
+Output : Twisted Prime Number
+Explanation: 97 is a prime number
+and its reverse 79 is also a prime
+number.
+
+#include<stdio.h>
+#include<math.h>
+
+int prime(int n,int i){
+    if(i==1){
+        return 1;
+    }
+    else if(n%i==0){
+        return 0;
+    }
+    else{
+        return prime(n,i-1);
+    }
+}
+int reverse(int n){
+    int rem=0;
+    while(n!=0){
+        rem=rem*10+(n%10);
+        n/=10;
+    }
+    return rem;
+}
+int main(){
+    int n,t,s;
+    scanf("%d",&n);
+    t=prime(n,n-1);
+    s=prime(reverse(n),reverse(n)-1);
+    if(t==1 && s==1){
+        printf("Twisted Prime");
+    }
+    else{
+        printf("Not Twisted prime");
+    }
+    //printf("%d",t);
+   // printf("%d",a);
+    
+}
