@@ -1,0 +1,24 @@
+
+#include<stdio.h>
+
+int main(){
+    int n,a[100],pos,c,data,j,arr[100],i=0;
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    scanf("%d",&c);
+    scanf("%d",&data);
+    pos=c-1;
+    for(i=0;i<pos-1;i++){
+        arr[i]=a[i];
+    }
+    arr[pos]=data;
+    for(i=pos+1,j=pos;i<n+1,j<n;i++,j++){
+        arr[i]=a[j];
+    }
+    for(i=0;i<n+1;i++){
+        printf("%d ",arr[i]);
+    } 
+    return 0;
+}
